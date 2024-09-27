@@ -1,0 +1,28 @@
+{
+  "name": "@orlv/transform-arrow-functions-webpack-plugin",
+  "version": "1.0.0",
+  "description": "Compile ES2015 arrow functions to ES5",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orlv/transform-arrow-functions-webpack-plugin.git"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "author": "Oleg Orlov",
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "index.js",
+  "files": [
+    "index.*"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/plugin-transform-arrow-functions": "^7.24.7",
+    "webpack": "^5.95.0"
+  }
+}
