@@ -4,6 +4,19 @@ const webpack = require('webpack')
 class TransformArrowFunctionsWebpackPlugin {
   name = 'TransformArrowFunctionsWebpackPlugin'
 
+  /**
+   * @param {boolean} transformClasses - Transform classes. Actual for VueJS.
+   */
+  constructor({
+    transformClasses = false
+  } = {}) {
+    this.plugins = ['@babel/plugin-transform-arrow-functions']
+
+    if (transformClasses) {
+      this.plugins.push('@babel/plugin-transform-classes')
+    }
+  }
+
   apply (compiler) {
     compiler.hooks.compilation.tap(
       this.name,
@@ -15,7 +28,7 @@ class TransformArrowFunctionsWebpackPlugin {
           assets => {
             for (const [pathname, source] of Object.entries(assets)) {
               const before = source.buffer().toString()
-              const { code } = babel.transform(before, { plugins: ['@babel/plugin-transform-arrow-functions'] })
+              const { code } = babel.transform(before, { plugins: this.plugins })
               const after = new webpack.sources.RawSource(code || '')
 
               compilation.updateAsset(pathname, after)
