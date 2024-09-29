@@ -1,6 +1,6 @@
 {
   "name": "@orlv/transform-arrow-functions-webpack-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Compile ES2015 arrow functions to ES5",
   "homepage": "",
   "repository": {
